@@ -104,8 +104,9 @@ a { text-decoration: none; color: inherit; }
 }
 
 .logo { flex-shrink: 0; }
-.logo-img { height: 52px; width: auto; object-fit: contain; }
-.logo-img--small { height: 40px; }
+.logo-img { height: 72px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 12px rgba(201,168,76,0.3)); }
+.logo-img--small { height: 48px; }
+.logo-img--hero { height: 160px; width: auto; object-fit: contain; filter: drop-shadow(0 4px 32px rgba(201,168,76,0.4)); margin-bottom: 32px; animation: fadeInUp 0.5s ease both; }
 
 .nav {
   display: flex;
@@ -182,6 +183,10 @@ a { text-decoration: none; color: inherit; }
   z-index: 2;
   padding: 140px 24px 80px;
   max-width: 720px;
+}
+
+.hero-logo-wrap {
+  animation: fadeInUp 0.5s ease both;
 }
 
 .hero-badge {
