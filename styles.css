@@ -86,27 +86,55 @@ a { text-decoration: none; color: inherit; }
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  padding: 16px 0;
+  padding: 0;
   transition: var(--transition);
-  background: transparent;
+  background: linear-gradient(180deg, rgba(10,8,0,0.98) 0%, rgba(13,13,13,0.92) 100%);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.6);
 }
 .header.scrolled {
-  background: rgba(13,13,13,0.95);
-  backdrop-filter: blur(12px);
-  padding: 10px 0;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+  background: rgba(10,8,0,0.99);
+  backdrop-filter: blur(20px);
+  border-bottom-color: rgba(201,168,76,0.35);
+  box-shadow: 0 4px 40px rgba(0,0,0,0.8), 0 1px 0 rgba(201,168,76,0.15);
 }
 
 .header-inner {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 40px;
+  padding: 12px 0;
 }
 
-.logo { flex-shrink: 0; }
-.logo-img { height: 72px; width: auto; object-fit: contain; filter: drop-shadow(0 2px 12px rgba(201,168,76,0.3)); }
-.logo-img--small { height: 48px; }
-.logo-img--hero { height: 160px; width: auto; object-fit: contain; filter: drop-shadow(0 4px 32px rgba(201,168,76,0.4)); margin-bottom: 32px; animation: fadeInUp 0.5s ease both; }
+.logo {
+  flex-shrink: 0;
+  position: relative;
+}
+.logo::after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 60px;
+  background: linear-gradient(180deg, transparent, rgba(201,168,76,0.4), transparent);
+}
+
+.logo-img {
+  height: 90px;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 16px rgba(201,168,76,0.35)) drop-shadow(0 2px 8px rgba(0,0,0,0.8));
+  transition: var(--transition);
+}
+.logo-img:hover {
+  filter: drop-shadow(0 0 24px rgba(201,168,76,0.6)) drop-shadow(0 2px 8px rgba(0,0,0,0.8));
+  transform: scale(1.03);
+}
+.logo-img--small { height: 52px; }
+.logo-img--hero { display: none; }
 
 .nav {
   display: flex;
@@ -181,8 +209,8 @@ a { text-decoration: none; color: inherit; }
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 140px 24px 80px;
-  max-width: 720px;
+  padding: 160px 24px 100px;
+  max-width: 760px;
 }
 
 .hero-logo-wrap {
